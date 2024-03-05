@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2966390}
   - component: {fileID: 2966391}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: CircleSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,8 +179,8 @@ MonoBehaviour:
   _teleportThreshold: 1
   <PrefabId>k__BackingField: 0
   <SpawnableCollectionId>k__BackingField: 0
-  _scenePathHash: 584410112
-  <SceneId>k__BackingField: 2510022318637042884
+  _scenePathHash: 3415992999
+  <SceneId>k__BackingField: 14671578214360381188
   <AssetPathHash>k__BackingField: 0
 --- !u!114 &2966391
 MonoBehaviour:

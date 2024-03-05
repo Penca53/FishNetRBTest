@@ -3,7 +3,7 @@ using FishNet.Object.Synchronizing;
 using TMPro;
 using UnityEngine;
 
-public class SpawnerManager : NetworkBehaviour
+public class BallSpanwer : NetworkBehaviour
 {
     [SerializeField]
     private GameObject _SpawnPrefab;
@@ -11,8 +11,6 @@ public class SpawnerManager : NetworkBehaviour
     private KeyCode _SpawnKey;
     [SerializeField]
     private TextMeshProUGUI _SpawnCountText;
-    [SerializeField]
-    private Transform _Target;
 
     private readonly SyncVar<int> _spawnedCount = new(0);
 
@@ -39,11 +37,8 @@ public class SpawnerManager : NetworkBehaviour
 
     private void Spawn()
     {
-        Vector3 position = new(Random.Range(-20f, 20f), Random.Range(-15f, 15f));
-
-        GameObject go = Instantiate(_SpawnPrefab, position, Quaternion.identity);
-        go.GetComponent<TargetMovement>().Target = _Target;
-        Spawn(go);
+        Vector3 position = new(transform.position.x + Random.Range(-8f, 8f), transform.position.y + Random.Range(-2f, 2f));
+        Spawn(Instantiate(_SpawnPrefab, position, Quaternion.identity));
 
         ++_spawnedCount.Value;
     }
