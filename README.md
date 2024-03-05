@@ -5,8 +5,8 @@ The following project showcases a possible bug with a CSP Rigidbody2D movement i
 ## How to Run
 
 Clone the repository, open the project on Unity (2022.3.20f1), then run the game on two instances.
-By pressing Spacebar on the **Server**, it will spawn an object that rotates in a circle.
+By pressing Spacebar on the **Server**, it will spawn an object that moves towards a target (in this case (0, 0)).
 
 ## The Bug
 
-When spawning <= 32 objects, the system works just fine. After this threshold, the only following objects will be heavily desynced.
+When spawning <= 32 objects, the system works just fine. After this threshold, the objects will desync heavily.
