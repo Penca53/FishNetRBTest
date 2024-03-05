@@ -9,4 +9,4 @@ By pressing Spacebar on the **Server**, it will spawn an object that moves towar
 
 ## The Bug
 
-When spawning <= 32 objects, the system works just fine. After this threshold, the only following objects will be heavily desynced.
+When spawning <= 32 objects, the system works just fine. After this threshold, the objects will desync heavily.
