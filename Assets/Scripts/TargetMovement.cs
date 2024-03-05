@@ -3,10 +3,11 @@ using FishNet.Object.Prediction;
 using FishNet.Transporting;
 using UnityEngine;
 
-public class CircleMovement : NetworkBehaviour
+public class TargetMovement : NetworkBehaviour
 {
     public struct MoveData : IReplicateData
     {
+        public Vector3 Direction;
         private uint _tick;
         public void Dispose() { }
         public uint GetTick() => _tick;
@@ -32,6 +33,8 @@ public class CircleMovement : NetworkBehaviour
         public void SetTick(uint value) => _tick = value;
     }
 
+    public Transform Target { get; set; }
+
     [SerializeField]
     private float _MoveSpeed;
     [SerializeField]
@@ -40,19 +43,23 @@ public class CircleMovement : NetworkBehaviour
     public override void OnStartNetwork()
     {
         base.OnStartNetwork();
+        TimeManager.OnTick += TimeManager_OnTick;
         TimeManager.OnPostTick += TimeManager_OnPostTick;
     }
 
     public override void OnStopNetwork()
     {
         base.OnStopNetwork();
+        TimeManager.OnTick -= TimeManager_OnTick;
         TimeManager.OnPostTick -= TimeManager_OnPostTick;
+    }
+
+    private void TimeManager_OnTick()
+    {
+        Move(BuildActions());
     }
     private void TimeManager_OnPostTick()
     {
-        //Does not move using input, this is only a reactive object so pass in default to move.
-        Move(default);
-        //Send reconcile per usual.
         if (IsServerStarted)
         {
             ReconcileData rd = new(transform.position, transform.rotation, _Rigidbody2D.velocity, _Rigidbody2D.angularVelocity);
@@ -60,13 +67,24 @@ public class CircleMovement : NetworkBehaviour
         }
     }
 
+    private MoveData BuildActions()
+    {
+        if (!IsServerStarted)
+        {
+            return default;
+        }
+
+        MoveData moveData = new()
+        {
+            Direction = Target.position - transform.position
+        };
+        return moveData;
+    }
 
     [Replicate]
     private void Move(MoveData md, ReplicateState state = ReplicateState.Invalid, Channel channel = Channel.Unreliable)
     {
-        // Move in circle.
-        Vector2 direction = new(Mathf.Cos(Time.time), Mathf.Sin(Time.time));
-        _Rigidbody2D.velocity = direction.normalized * _MoveSpeed;
+        _Rigidbody2D.velocity = md.Direction.normalized * _MoveSpeed;
     }
 
     [Reconcile]

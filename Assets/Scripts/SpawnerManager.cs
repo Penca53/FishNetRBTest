@@ -11,6 +11,8 @@ public class SpawnerManager : NetworkBehaviour
     private KeyCode _SpawnKey;
     [SerializeField]
     private TextMeshProUGUI _SpawnCountText;
+    [SerializeField]
+    private Transform _Target;
 
     private readonly SyncVar<int> _spawnedCount = new(0);
 
@@ -38,7 +40,10 @@ public class SpawnerManager : NetworkBehaviour
     private void Spawn()
     {
         Vector3 position = new(Random.Range(-20f, 20f), Random.Range(-15f, 15f));
-        Spawn(Instantiate(_SpawnPrefab, position, Quaternion.identity));
+
+        GameObject go = Instantiate(_SpawnPrefab, position, Quaternion.identity);
+        go.GetComponent<TargetMovement>().Target = _Target;
+        Spawn(go);
 
         ++_spawnedCount.Value;
     }

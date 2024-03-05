@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2904141232155052317}
-  - component: {fileID: 7356917600957752004}
+  - component: {fileID: 1176631724023963681}
   - component: {fileID: 3329557937046469071}
   - component: {fileID: 905211129592549996}
-  - component: {fileID: 3496641657685765563}
+  - component: {fileID: 7136522690264278282}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 2191740726723297740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &7356917600957752004
+--- !u!50 &1176631724023963681
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   _networkBehaviours:
-  - {fileID: 3496641657685765563}
+  - {fileID: 7136522690264278282}
   <SerializedRootNetworkBehaviour>k__BackingField: {fileID: 0}
   <NestedRootNetworkBehaviours>k__BackingField: []
   SerializedTransformProperties:
@@ -139,7 +139,7 @@ MonoBehaviour:
   _scenePathHash: 0
   <SceneId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 16557532156044363637
---- !u!114 &3496641657685765563
+--- !u!114 &7136522690264278282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,14 +148,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3877361036422188446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f321b369e95125b42a0b3ec9f99ca021, type: 3}
+  m_Script: {fileID: 11500000, guid: 8116bcf72a87af542b2250cecea60135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 905211129592549996}
   _networkObjectCache: {fileID: 905211129592549996}
   _MoveSpeed: 2
-  _Rigidbody2D: {fileID: 7356917600957752004}
+  _Rigidbody2D: {fileID: 1176631724023963681}
 --- !u!1 &5688526497924811220
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
