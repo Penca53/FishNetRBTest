@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 905211129592549996}
   - component: {fileID: 7136522690264278282}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   <SpawnableCollectionId>k__BackingField: 0
   _scenePathHash: 0
   <SceneId>k__BackingField: 0
-  <AssetPathHash>k__BackingField: 16557532156044363637
+  <AssetPathHash>k__BackingField: 9890418979742979923
 --- !u!114 &7136522690264278282
 MonoBehaviour:
   m_ObjectHideFlags: 0
